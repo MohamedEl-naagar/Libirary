@@ -13,6 +13,7 @@ import { UpdateBookDto } from './dto/update-book.dto';
 import { CreateBookDto } from './dto/create-book.dto';
 import { Query as ExpressQuery } from 'express-serve-static-core';
 import { AuthGuard } from '@nestjs/passport';
+// import { JWTUserGuard } from 'src/auth/guards/jwt.guard';
 @Controller('book')
 export class BookController {
   constructor(private _bookService: BookService) {}
@@ -23,7 +24,7 @@ export class BookController {
     return this._bookService.findAll(query);
   }
 
-  @UseGuards(AuthGuard())
+  // @UseGuards(JWTUserGuard)
   @Post('add')
   async addBook(@Body() book: CreateBookDto): Promise<Book> {
     return this._bookService.create(book);
