@@ -15,15 +15,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     console.log('hello  ');
   }
 
-  // async validate(payload) {
-  //   const { id } = payload;
-  //   const user = await this.UserModel.findById(id);
-  //   if (!user) {
-  //     throw new UnauthorizedException('Login first to access this endpoint');
-  //   }
-  //   return user;
-  // }
-
   async validate(payload) {
     console.log(payload);
 
